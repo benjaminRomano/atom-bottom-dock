@@ -1,2 +1,2 @@
 
-exports.BottomDockPaneView = require('./bottom-dock-pane-view')
+exports.DockPaneView = require('./dock-pane-view')

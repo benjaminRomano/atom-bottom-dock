@@ -1,8 +1,5 @@
 {View} = require('space-pen')
 
-module.exports =
-  DockPaneView: DockPaneView
-
 class DockPaneView extends View
   initialize: ->
     @canBeDeleted = true
@@ -36,3 +33,6 @@ class DockPaneView extends View
     for i in [0 .. 7]
       text += possible.charAt(Math.floor(Math.random() * possible.length))
     return 'dock-pane-' + text
+
+
+module.exports = DockPaneView

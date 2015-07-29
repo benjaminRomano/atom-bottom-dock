@@ -2,7 +2,7 @@
   "name": "atom-bottom-dock",
   "version": "0.1.0",
   "description": "Helpers for creating panes for the Bottom-Dock atom package",
-  "main": "bottom-dock-pane-view.coffee",
+  "main": "./lib/main.coffee",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

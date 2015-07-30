@@ -1,14 +1,13 @@
 atom-bottom-dock
 ==================
 
-atom-bottom-dock is an npm helper module that you can use to create panes for the bottom-dock atom package
+[atom-bottom-dock](https://www.npmjs.com/package/atom-bottom-dock) is an npm helper module that you can use to create panes for the bottom-dock atom package
 #### API
 
 ```js
 class DockPaneView extends View {
   initialize(): void
   setActive(active: boolean): void
-  canBeDeleted(): boolean
   isActive(): boolean
   getId(): string
   refresh(): void

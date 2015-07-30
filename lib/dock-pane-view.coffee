@@ -2,7 +2,6 @@
 
 class DockPaneView extends View
   initialize: ->
-    @canBeDeleted = true
     @id = @generateId()
 
   setActive: (active) ->
@@ -11,9 +10,6 @@ class DockPaneView extends View
       @show()
     else
       @hide()
-
-  canBeDeleted: ->
-    return true
 
   isActive: ->
     return @active

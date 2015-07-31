@@ -2,7 +2,8 @@
 
 class DockPaneView extends View
   initialize: ->
-    @id = @generateId()
+    @id = generateId()
+    @setActive(true)
 
   setActive: (active) ->
     @active = active
@@ -22,7 +23,7 @@ class DockPaneView extends View
   destroy: ->
     @remove()
 
-  generateId: ->
+  generateId = ->
     possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
 
     text = ''

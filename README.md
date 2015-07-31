@@ -12,7 +12,6 @@ class DockPaneView extends View {
   getId(): string
   refresh(): void
   destroy(): void
-  generateId(): string  //Internal use only
 }
 ````
 

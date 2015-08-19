@@ -3,22 +3,17 @@
 class DockPaneView extends View
   initialize: ->
     @id = generateId()
-    @setActive(true)
+    @setActive true
 
   setActive: (active) ->
     @active = active
-    if @active
-      @show()
-    else
-      @hide()
+    if @active then @show() else @hide()
 
   isActive: ->
-    return @active
+    @active
 
   getId: ->
-    return @id.split('dock-pane-')[1]
-
-  refresh: ->
+    @id.split('dock-pane-')[1]
 
   destroy: ->
     @remove()
@@ -29,7 +24,7 @@ class DockPaneView extends View
     text = ''
     for i in [0 .. 7]
       text += possible.charAt(Math.floor(Math.random() * possible.length))
-    return 'dock-pane-' + text
 
+    "dock-pane-#{text}"
 
 module.exports = DockPaneView

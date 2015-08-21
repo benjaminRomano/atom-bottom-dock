@@ -16,6 +16,8 @@
     overflow: hidden;
     white-space: nowrap;
     min-width: -webkit-min-content;
+    background-color: @background-color-selected;
+    border-bottom: @base-border-color 1px solid;
 
     a, a:hover {
       color: @text-color;
@@ -34,7 +36,8 @@
 
     // Use 2/3 of space
     .toolbar-right {
-      padding-left: @component-padding;
+      float: right;
+      padding-right: @component-padding;
       .inline-block{
         margin-right: 0;
         margin-left: @component-padding;

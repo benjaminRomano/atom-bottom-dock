@@ -8,7 +8,7 @@ class FilterSelector extends View
       @div outlet: 'filterContainer', class: 'btn-group', =>
         if config?.filters
           for filter in config.filters
-            @button class: 'filter-button', click: 'onFilterChanged', 'data-name': filter.name, filter.label
+            @button class: 'filter-button', click: 'onFilterChanged', 'data-name': filter.name, filter.label ? filter.name
 
   initialize: (config) ->
     @emitter = new Emitter()

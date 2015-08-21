@@ -5,7 +5,7 @@ require 'tablesorter'
 class SortableTable extends View
   @content: (config) ->
     @div class: 'table-container', =>
-      @table outlet: 'table', class: 'tablesorter tablesorter-atom linter-table', =>
+      @table outlet: 'table', class: 'tablesorter tablesorter-atom resizable-table', =>
         @thead outlet: 'headers', =>
           if config?.headers
             @th header for header in config.headers

@@ -13,8 +13,8 @@ class SortableTable extends View
 
   initialize: (config) ->
     # Hack to include tablesorter jquery extension
-    @messageTableBody = $(@messageTableBody)
-    @messageTable = $(@messageTable)
+    @table = $(@table)
+    @body = $(@body)
 
     @table.tablesorter
       theme: 'atom'

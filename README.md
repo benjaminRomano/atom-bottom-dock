@@ -7,37 +7,82 @@ atom-bottom-dock
 
 ```js
 class DockPaneView extends View {
-  initialize(): void
   setActive(active: boolean): void
   isActive(): boolean
   getId(): string
-  refresh(): void
   destroy(): void
 }
 ```
 
 ```js
-class TabButton extends View {
-  initialize(config): void // config: { id: string, active: boolean } where id comes from your pane's id
-  isActive(): boolean
-  getId(): string
-  onDidClick(callback): Disposable
+class FilterSelector extends View {
+  constructor(config?): void // where config is { filterLabel?: string, activeFilter?: string, filters?: [{ value: string, label?: string }]}
+  updateFilters(config): void // where config is the same as constructor param
+  setFilter(filterName: string): void
+  getFilter(): string
+  onDidChangeFilter(callback): Disposable
   destroy(): void
 }
 ```
 
-##### How to use
-Extend the DockPaneView and TabButton to create a new pane type for the bottom-dock package.
+```js
+class SortableTable extends View {
+  constructor(config): void // where config is { headers: string[] }
+  JQueryElement body //JQuery is extended by tablesorter. Learn more [here](https://github.com/Mottie/tablesorter)
+}
+```
 
-If you don't want a custom tabButton you can use the prepackaged basicTabButton like so:
+```js
+class Toolbar extends View {
+  addLeftTile(options): JQueryElement // where options is { item: JQueryElement, priority: int }
+  addRightTile(options): JQueryElement // where options is { item: JQueryElement priority: int }
+  destroy(): void
+}
+```
 
+#### How to use
+Extend the DockPaneView to create a new pane type for the bottom-dock package.
+
+FilterSelector Example
 ```coffee
-{BasicTabButton} = require('atom-bottom-dock')
+{FilterSelector} = require 'atom-bottom-dock'
 
 config =
-  name: 'Example'
-  active: yourPaneHere.isActive()
-  id: yourPaneHere.getId()
+  activeFilter: 'filter1'
+  label: 'Example Filter:'
+  filters: [{
+    value: 'filter1'
+  }, {
+    value: 'filter2'
+    label: 'Filter2 Label'
+  }]
 
-var newTab = new BasicTabButton(config)
+filterSelector = new FilterSelector config
+
+filterSelector.setActiveFilter 'filter2'
+filterSelector.getActiveFilter() # 'filter2'
+```
+
+SortableTable Example
+```coffee
+{SortableTable} = require 'atom-bottom-dock'
+
+table = new SortableTable headers: ['Header1', 'Header2']
+
+row = $('<tr>
+  <td>Data1</td>
+  <td>Data2</td>
+')
+
+table.body.append row
+table.body.trigger 'update' #Force resort
+```
+
+Toolbar Example
+```coffee
+{Toolbar} = require 'atom-bottom-dock'
+toolbar = new Toolbar()
+
+toolbar.addLeftTile item: $('button'), priority: 0
+toolbar.addRightTile item: $('<span>Example</span>'), priority: 1
 ```

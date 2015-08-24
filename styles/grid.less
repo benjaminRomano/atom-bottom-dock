@@ -5,13 +5,6 @@
 @bodyBackground: @base-background-color;
 @packageName: 'bottom-dock';
 
-
-*, *:before, *:after { -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; }
-.slick-header > .slick-header-columns > .slick-header-column {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box; }
-
 .slick-header.ui-state-default, .slick-headerrow.ui-state-default {
   width: 100%;
   overflow: hidden;
@@ -56,11 +49,11 @@
 }
 
 .slick-sort-indicator-desc {
-  background: url("atom://#{@packageName}/images/sort-desc.gif");
+  background: url("atom://@{packageName}/images/sort-desc.gif");
 }
 
 .slick-sort-indicator-asc {
-  background: url("atom://#{@packageName}/images/sort-asc.gif");
+  background: url("atom://@{packageName}/images/sort-asc.gif");
 }
 
 .slick-resizable-handle {

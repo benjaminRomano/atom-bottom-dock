@@ -20,16 +20,19 @@ class FilterSelector extends View {
   updateFilters(config): void // where config is the same as constructor param
   setFilter(filterName: string): void
   getFilter(): string
-  onDidChangeFilter(callback): Disposable
+  onDidChangeFilter(callback: Function): Disposable
   destroy(): void
 }
 ```
 
 ```js
-class SortableTable extends View {
-  constructor(config): void // where config is { headers: string[] }
-  JQueryElement body //JQuery is extended by tablesorter. Learn more [here](https://github.com/Mottie/tablesorter)
-}
+class TableView extends View {
+  constructor(data, columns): void // See [here](https://github.com/mleibman/SlickGrid) for information on how to structure data and columns
+  deleteAllRows(): void
+  addRows(rows): void
+  onDidFinishAttaching(callback: Function): Disposable
+  onDidClickGridItem(callback: Function): Disposable
+  resize(heightOnly: boolean): void
 ```
 
 ```js
@@ -63,19 +66,30 @@ filterSelector.setActiveFilter 'filter2'
 filterSelector.getActiveFilter() # 'filter2'
 ```
 
-SortableTable Example
+TableView Example
 ```coffee
-{SortableTable} = require 'atom-bottom-dock'
+{TableView} = require 'atom-bottom-dock'
 
-table = new SortableTable headers: ['Header1', 'Header2']
 
-row = $('<tr>
-  <td>Data1</td>
-  <td>Data2</td>
-')
+columns = [
+  {id: "type", name: "Type", field: "type", sortable: true }
+  {id: "description", name: "Description", field: "description", sortable: true }
+  {id: "path", name: "Path", field: "path", sortable: true }
+  {id: "line", name: "Line", field: "line", sortable: true }
+]
 
-table.body.append row
-table.body.trigger 'update' #Force resort
+rows = [{
+  type: "type"
+  description: "description"
+  path: "path"
+  line: "line"
+  message: "Some additional data to store with row (will not be displayed)"
+}]
+
+table = new TableView rows, columns
+
+table.addRows rows
+
 ```
 
 Toolbar Example

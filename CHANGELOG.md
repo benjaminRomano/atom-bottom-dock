@@ -1,3 +1,6 @@
+## 0.5.0
+* Replaced tablesorter with slickgrid
+
 ## 0.4.0
 * Reverted tabButtons to not be configurable
 * Added SortableTable, FilterSelector and Toolbar Components

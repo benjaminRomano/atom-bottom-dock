@@ -1,3 +1,6 @@
+## 0.5.1
+* Fix for tab dragging not working 
+
 ## 0.5.0
 * Replaced tablesorter with slickgrid
 

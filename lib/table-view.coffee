@@ -1,5 +1,5 @@
 {View, $} = require 'space-pen'
-SlickGrid = require 'slickgrid/grid'
+SlickGrid = require 'bd-slickgrid/grid'
 {Emitter} = require 'atom'
 
 class TableView extends View

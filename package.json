@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "slickgrid": "^2.1.0-1",
+    "bd-slickgrid": "^0.0.0",
     "space-pen": "^5.1.1"
   },
   "repository": {

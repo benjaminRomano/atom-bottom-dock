@@ -1,3 +1,6 @@
+## 0.5.3
+* Fixed height for toolbar
+
 ## 0.5.2
 * Updated stylings
 

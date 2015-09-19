@@ -6,17 +6,18 @@
 .bottom-dock {
 
   .toolbar {
+    flex: none;
     display: block;
     font-size: 11px;
     line-height: @component-line-height - 3px;
-    height: @component-line-height + 1px;
+    height: @component-line-height + 3px;
     position: relative;
     -webkit-user-select: none;
     cursor: default;
     overflow: hidden;
     white-space: nowrap;
     min-width: -webkit-min-content;
-    background-color: @background-color-selected;
+    background-color: @tool-panel-background-color;
     border-bottom: @base-border-color 1px solid;
 
     a, a:hover {

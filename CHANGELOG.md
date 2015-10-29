@@ -1,10 +1,9 @@
-## 0.5.3
-* Fixed height for toolbar
-
 ## 0.5.2
-* Updated stylings
+* Fixed sorting for tables
 
 ## 0.5.1
+* Updated stylings
+* Fixed height for toolbar
 * Fix for tab dragging not working
 
 ## 0.5.0

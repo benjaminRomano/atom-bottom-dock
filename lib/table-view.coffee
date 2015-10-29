@@ -21,6 +21,7 @@ class TableView extends View
   addRows: (newData) ->
     return unless @grid
     @data = @data.concat newData
+    @sortData()
     @grid.setData @data
     @grid.invalidateAllRows()
     @grid.render()
@@ -31,6 +32,22 @@ class TableView extends View
     @grid.setData @data
     @grid.invalidateAllRows()
     @grid.render()
+
+  sortData: () =>
+    cols = @grid.getSortColumns()
+
+    return unless cols.length
+
+    @data.sort (dataRow1, dataRow2) ->
+      for i in [0..cols.length-1]
+        field = cols[i].columnId
+        sign = if cols[i].sortAsc then 1 else -1
+        value1 = dataRow1[field]
+        value2 = dataRow2[field]
+        result = (if value1 == value2 then 0 else if value1 > value2 then 1 else -1) * sign
+        if result != 0
+          return result
+      0
 
   attached: ->
     @data = @data ? []
@@ -46,17 +63,7 @@ class TableView extends View
     @resize()
 
     @grid.onSort.subscribe (e, args) =>
-      cols = args.sortCols
-      @data.sort (dataRow1, dataRow2) ->
-        for i in [0..cols.length-1]
-          field = cols[i].sortCol.field
-          sign = if cols[i].sortAsc then 1 else -1
-          value1 = dataRow1[field]
-          value2 = dataRow2[field]
-          result = (if value1 == value2 then 0 else if value1 > value2 then 1 else -1) * sign
-          if result != 0
-            return result
-        0
+      @sortData()
       @grid.invalidate()
       @grid.render()
 

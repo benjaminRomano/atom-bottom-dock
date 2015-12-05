@@ -1,4 +1,5 @@
 {View, $} = require 'space-pen'
+window.jQuery = $
 SlickGrid = require 'bd-slickgrid/grid'
 {Emitter} = require 'atom'
 

@@ -1,3 +1,6 @@
+## 0.5.3
+* Changed table-view to automatically add jQuery to window
+
 ## 0.5.2
 * Fixed sorting for tables
 

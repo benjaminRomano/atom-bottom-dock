@@ -1,6 +1,6 @@
 {
   "name": "atom-bottom-dock",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "Helpers for creating panes for the Bottom-Dock atom package",
   "main": "./lib/main.coffee",
   "scripts": {
